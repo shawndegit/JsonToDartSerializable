@@ -7,7 +7,7 @@
   <!-- Public plugin name should be written in Title Case.
        Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
   <name>JsonToDartSerializable</name>
-  <idea-version since-build="145.0"/>
+  <idea-version since-build="223"/>
 
   <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
   <vendor email="prasitsingzom@gmail.com" url="https://github.com/nesprasit">Nes Prasit Singzom</vendor>
@@ -43,9 +43,8 @@
   <!-- Product and plugin compatibility requirements.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
   <depends>Dart</depends>
-  <depends>com.intellij.modules.lang</depends>
-  <depends>org.jetbrains.android</depends>
-  <depends>com.intellij.modules.androidstudio</depends>
+  <!-- 适配 IDEA 平台 -->
+  <depends>com.intellij.modules.platform</depends>
 
   <!-- Extension points defined by the plugin.
        Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->

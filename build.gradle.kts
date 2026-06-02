@@ -16,13 +16,15 @@ dependencies {
 }
 
 // Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
   pluginName.set("JsonToDartSerializable")
-  version.set("AI-231.9392.1.2311.11255304")
-  type.set("AI") // Target IDE Platform
 
-  plugins.set(listOf("Dart:231.9411","android"))
+  // Build against IntelliJ IDEA platform so plugin can be installed in IDEA and Android Studio
+  type.set("IC")
+  version.set("2022.3.3") // 223 baseline
+
+  // Keep Dart dependency; avoid Android-only dependency for cross-IDE compatibility
+  plugins.set(listOf("Dart:223.8977"))
 }
 
 tasks {
@@ -31,6 +33,7 @@ tasks {
   withType<JavaCompile> {
     sourceCompatibility = "17"
     targetCompatibility = "17"
+    options.encoding = "UTF-8"
   }
 
   withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -39,7 +42,8 @@ tasks {
 
   patchPluginXml {
     version.set("1.0.1")
-    sinceBuild.set("145.0")
+    sinceBuild.set("223") // 2022.3+
+    untilBuild.set("")
   }
 
   signPlugin {
